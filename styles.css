@@ -1,0 +1,70 @@
+
+.header{
+color:white;
+min-height: 4rem;
+background-color: #7952b3;
+box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
+text-align: center;
+font-family: Tahoma, Geneva, sans-serif;
+width: 100%;
+position:fixed;
+}
+.card-box {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main{
+}
+body{
+    overflow:hidden;
+    word-break: break-word;
+}
+.main{
+    position:relative;
+    top: 12vh;
+}
+.content{
+    position:relative;
+    text-align: right;
+}
+.controls{
+    position:relative;
+}
+.console{
+    border-style:solid;
+    border-width: 1px;
+    padding:10px;
+        position:relative;
+}
+.centered{
+        position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.console{
+    height:820px;
+    width:820px;
+}
+.number-input{
+    width:80px;
+    text-align: center;
+}
+.check{
+    width:15px;
+    height:15px;
+}
+.purple{
+    background-color: mediumpurple;
+    color:white;
+}
+.credits{
+ font-size:20px;
+}
+canvas{
+    height:820px;
+    width:820px;
+    border-style: solid;
+    border-width: 1px;
+        image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
