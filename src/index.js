@@ -7,6 +7,7 @@ var hudCTX;
 var baseImage;
 var mousePositionElement;
 var mainEle;
+var zoomFactor = 1;
 window.onload=function(){
 mainEle = document.getElementById("main");
 mousePositionElement = document.getElementById("mouseHUD");
@@ -32,7 +33,7 @@ window.addEventListener("resize",resize);
 function resize(e){
 var factorX = window.innerWidth/1920;
 var factorY = window.innerHeight/900;
-var zoomFactor = Math.min(factorX,factorY);
+zoomFactor = Math.min(factorX,factorY);
  mainEle.setAttribute("style",`zoom:${zoomFactor}`);
 }
 var mazeMap;
@@ -51,7 +52,6 @@ overlayCTX.imageSmoothingEnabled = false;
         }
         mazeMap.push(row);
     }
-//console.log(mazeMap);
 
 initializePath();
 
@@ -68,8 +68,8 @@ var canvasMousePos = {x:-1,y:-1};
 var isMouseDown = false;
 var editMode = 0;
 function moveMouse(e){
-    var x = Math.floor(e.offsetX/(820/mazeMap.length));
-    var y = Math.floor(e.offsetY/(820/mazeMap.length));
+    var x = Math.floor(e.offsetX/(820*zoomFactor/mazeMap.length));
+    var y = Math.floor(e.offsetY/(820*zoomFactor/mazeMap.length));
 if(x!=canvasMousePos.x||y!=canvasMousePos.y){
     var oldPos = canvasMousePos;
     canvasMousePos = {x:x,y:y};

@@ -26,6 +26,7 @@ body{
 }
 .controls{
     position:relative;
+    text-align: center;
 }
 .console{
     border-style:solid;
