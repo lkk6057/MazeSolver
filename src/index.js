@@ -6,7 +6,9 @@ var hud;
 var hudCTX;
 var baseImage;
 var mousePositionElement;
+var mainEle;
 window.onload=function(){
+mainEle = document.getElementById("main");
 mousePositionElement = document.getElementById("mouseHUD");
     canvas = document.getElementById('canvas');
 ctx = canvas.getContext('2d');
@@ -22,9 +24,16 @@ baseImage = new Image();
   baseImage.onload = function() {
 scaleCanvases(baseImage.width,baseImage.height);
 loadCanvasImage(baseImage);
-
+resize();
   }
     baseImage.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAYAAACoYAD2AAAAAXNSR0IArs4c6QAAAeVJREFUWEfNmNsSgyAMROH/P9qOncHByOZssA/1rUJDOGwu2FtrR/vzpx/HkTrZe2/ZlDEe59H/XC6nnT6TPJ05X45n/I7v1Xicr/4XHST7XydnUooAkakSjfPVSVwkaSfu0ZAdRZreXySznTikx0bIDml3Rfjh5DyJtKcIE5lolzSaOrki6GpPac7V4nwy6GQW7Sr6iSSNR9IY3a6G4pG5JKOWV+vdSLoaq0a7mz/VPHncaoeUL6tEnfmWJl0SRNi1E/OtnScpKslBlRUUSRndlBddEirvUS1XvYOM7t3oJI3RuIzutwSr+bK63jZJR0tZ0q7U+jRPUj/pao+0rLR4bWT0k7t9JGnMzbdZT2DlSUovLlGlRdUVDcKWk9kdx9Umzcs0Wuon1Y533xNBJKmOmLRL4zsatrogl1T1jkMataNbRaersWp0r+wuNUnRWq3BpD0lrYcmiVi1C6KOXkXzyo/bFwzSCNVoOgEiptZ/1O4sX81OVslTQdj+gkFaUjWXNFslKkm6ROmLxW4WmNe3uqC3RKnLIS3jHcfVHpEnorYmacfUX1a16K5nk6zktaxrons7flWjGk1R6ZIm4tEORjflt7e1WdmfiS4rjuvYboVy7cva7RqgaCUNV9b5CcnKgjtzPzke0DpG2aFWAAAAAElFTkSuQmCC";
+}
+window.addEventListener("resize",resize);
+function resize(e){
+var factorX = window.innerWidth/1920;
+var factorY = window.innerHeight/900;
+var zoomFactor = Math.min(factorX,factorY);
+ mainEle.setAttribute("style",`zoom:${zoomFactor}`);
 }
 var mazeMap;
 function loadCanvasImage(image){
@@ -330,7 +339,6 @@ for(var i = 0;i<solvedPath.length;i++){
        animatedPath.push(solvedPath[i]);
        }
     else{
-        console.log("omit");
     }
 }
 colorSolved(animatedPath);
