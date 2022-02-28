@@ -64,7 +64,7 @@ canvas.height =height;
     hud.width = width;
     hud.height = width;
 }
-var canvasMousePos = {x:-1,y:-1};
+var canvasMousePos = {x:0,y:0};
 var isMouseDown = false;
 var editMode = 0;
 function moveMouse(e){
@@ -72,6 +72,12 @@ function moveMouse(e){
     var y = Math.floor(e.offsetY/(820*zoomFactor/mazeMap.length));
 if(x!=canvasMousePos.x||y!=canvasMousePos.y){
     var oldPos = canvasMousePos;
+    if(y<=0){
+       y=0;
+       }
+    if(x<=0){
+       x=0;
+       }
     canvasMousePos = {x:x,y:y};
     canvasMouseMoved(oldPos);
    }
@@ -575,6 +581,7 @@ return false;
 }
 function isWall(point){
     return mazeMap[point.y][point.x];
+   
 }
 class Node{
     constructor(position,origin,open=true,starting = false){

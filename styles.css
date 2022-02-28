@@ -7,7 +7,7 @@ box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05), inset 0 -1px 0 rgba(0,0,0,.1);
 text-align: center;
 font-family: Tahoma, Geneva, sans-serif;
 width: 100%;
-position:fixed;
+    height:10%;
 }
 .card-box {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -17,16 +17,19 @@ body{
     word-break: break-word;
 }
 .main{
+    height:90%;
+    bottom: 0;
     position:relative;
-    top:20vh
+    display:flex;
+    justify-content: space-between;
 }
 .content{
-    position:relative;
-    text-align: right;
+    margin:2em;
 }
 .controls{
     position:relative;
     text-align: center;
+    margin: 2em;
 }
 .console{
     border-style:solid;
@@ -36,9 +39,6 @@ body{
 }
 .centered{
         position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 .console{
     height:820px;
@@ -65,5 +65,4 @@ canvas{
     border-style: solid;
     border-width: 1px;
         image-rendering: pixelated;
-    image-rendering: crisp-edges;
 }
